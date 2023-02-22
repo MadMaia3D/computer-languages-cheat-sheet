@@ -4,24 +4,19 @@
 Use the number sign to create a header:
 ```markdown
 # Level 1 Header
-
 ## Level 2 Header
-
 ### Level 3 Header
-
 #### Level 4 Header
-
 ##### Level 5 Header
-
 ###### Level 6 Header
 ```
 Result:
-> # Level 1 Header  
-> ## Level 2 Header  
-> ### Level 3 Header  
-> #### Level 4 Header  
-> ##### Level 5 Header  
-> ###### Level 6 Header
+# Level 1 Header  
+## Level 2 Header  
+### Level 3 Header  
+#### Level 4 Header  
+##### Level 5 Header  
+###### Level 6 Header
 
 ---
 ## Normal Text:
@@ -37,9 +32,9 @@ Wrap the text with * or _:
 Here is a *piece of text* in italics.  
 Here is another _piece of text_ in italics
 ```
-Result:
->Here is a *piece of text* in italics.  
->Here is another _piece of text_ in italics
+Result:  
+Here is a *piece of text* in italics.  
+Here is another _piece of text_ in italics
 
 ## Bold:
 Wrap the text with ** or __:
@@ -47,7 +42,7 @@ Wrap the text with ** or __:
 This is a **piece of text** in bold.  
 This is another __piece of text__ in bold.
 ```
-Result:
+Result:  
 This is a **piece of text** in bold.  
 This is another __piece of text__ in bold.
 
@@ -57,7 +52,7 @@ Wrap the text with ** or __:
 This is a ***piece of text*** in bold.  
 This is another ___piece of text___ in bold.
 ```
-Result:
+Result:  
 This is a ***piece of text*** in bold.  
 This is another ___piece of text___ in bold.
 
@@ -66,7 +61,7 @@ Wrap the text with ~~.
 ```markdown
 This is a ~~piece of text~~ with a strikethrough.  
 ```
-Result:
+Result:  
 This is a ~~piece of text~~ with a strikethrough.  
 
 ## Blockquotes:
@@ -86,9 +81,8 @@ For inline code, surround your code with the backtick character ( \` ):
 Put you code `here`.
 ```
 
-Result:
-
-> Put you code `here`.
+Result:  
+Put you code `here`.
 
 For a block of code, surround your code with triple backticks:
 
