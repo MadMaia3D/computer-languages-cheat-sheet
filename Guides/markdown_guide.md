@@ -97,3 +97,30 @@ Or indent every line by at least 4 spaces or 1 tab:
 ````markdown
     Put the block of code here.
 ````
+
+---
+## Links & Images
+
+### Links:
+```markdown
+[Google](https://www.google.com)
+```
+
+Result:  
+[Take Me To Google](https://www.google.com)
+
+You can link to other files too:
+```markdown
+[Another page](another_file.md)
+```
+
+### Images:
+Insert a exclamation mark before the link:
+```markdown
+![Image Alternative Text](image_file.png)
+```
+Result:  
+![Image Alternative Text](./resources/images/ferrari-250-gto.jpg)
+
+Result with missing image or invalid path:  
+![Image Alternative Text](image_file.png)
