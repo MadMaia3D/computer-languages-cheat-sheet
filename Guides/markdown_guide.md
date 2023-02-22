@@ -124,3 +124,44 @@ Result:
 
 Result with missing image or invalid path:  
 ![Image Alternative Text](image_file.png)
+
+---
+## Lists
+
+### Unordered:
+Precede each item in the list with a dash/hyphen:
+```markdown
+- Item A
+- Item B
+- Item C
+```
+Result:  
+- Item A
+- Item B  
+- Item C  
+
+Or use a asterisk instead:
+```markdown
+* Item A
+* Item B
+* Item C
+```
+Result:
+* Item A  
+* Item B  
+* Item C  
+
+### Ordered:
+Just precede an list items with a number and a dot. It doesn't need to be in order, you can just repeat the same number:
+
+```markdown
+1. Item 1
+1. Item 2
+1. Item 3
+```
+Result:  
+1. Item 1
+1. Item 2
+1. Item 3
+
+---
