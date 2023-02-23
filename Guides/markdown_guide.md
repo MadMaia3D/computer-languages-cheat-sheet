@@ -191,3 +191,11 @@ Unfortunately task lists doesn't work everywhere:
 Unfortunately emojis doesn't work everywhere
 :smile:
 :wave:
+
+---
+## Raw HTML:
+```markdown
+<h3>This is a HTML header element</h3>
+```
+Result:
+<h3>This is a HTML header element</h3>
