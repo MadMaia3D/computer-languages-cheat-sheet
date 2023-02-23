@@ -179,3 +179,9 @@ Col 1 | Col 2 | Col 3
 --- | --- | ---
 *Item 1* | *Item 2* | *Item 3*
 *Item 4* | *Item 5* | *Item 6*
+
+---
+## Task list
+Unfortunately task lists doesn't work everywhere:
+- [ ] This isn't done
+- [x] This is done
