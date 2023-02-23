@@ -188,8 +188,12 @@ Unfortunately task lists doesn't work everywhere:
 
 ---
 ## Emoji
-Unfortunately emojis doesn't work everywhere
-:smile:
+Unfortunately emojis doesn't work everywhere: 
+```markdown
+:smile:  
+:wave:
+```
+:smile:  
 :wave:
 
 ---
