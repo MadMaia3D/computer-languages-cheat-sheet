@@ -183,6 +183,10 @@ Col 1 | Col 2 | Col 3
 ---
 ## Task list
 Unfortunately task lists doesn't work everywhere:
+```markdown
+- [ ] This isn't done
+- [x] This is done
+```
 - [ ] This isn't done
 - [x] This is done
 
