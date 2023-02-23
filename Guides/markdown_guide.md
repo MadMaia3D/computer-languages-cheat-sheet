@@ -185,3 +185,9 @@ Col 1 | Col 2 | Col 3
 Unfortunately task lists doesn't work everywhere:
 - [ ] This isn't done
 - [x] This is done
+
+---
+## Emoji
+Unfortunately emojis doesn't work everywhere
+:smile:
+:wave:
