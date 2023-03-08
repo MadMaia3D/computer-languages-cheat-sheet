@@ -9,6 +9,7 @@ The document object is a child of window object. It is the HTML document itself.
 window;
 window.console.log();
 window.alert();
+window.prompt();
 window.document;
 window.document.head;
 window.document.body;
@@ -154,56 +155,105 @@ If you use the assignment operator, it will overwrite the existing classes.
 element.classList;
 element.classList.add('new-class');
 element.classList.remove('old-class');
+element.classList.contains('old-class');
 ```
 
 ---
 
-## Creating and Appending Elements
+## Creating, Appending, Replacing and Removing Elements
 
 The document object has methods for creating elements and text nodes.
 
-### Creating Elements
+## Creating Elements
 
 ```Javascript
 let newElement = document.createElement( 'tagName' );
 let newTextNode = document.createTextNode( 'text content' );
-
 ```
 
-### Appending Elements
+## Appending Elements
 
 Remember that you must append the new text or element to the page.  
 For new text nodes you must append it to an element.  
 For new elements you should append to the document, normally in the body.
 
+Append will insert the element to the end of another element.
+
 ```Javascript
 newElement.appendChild( newTextNode );
 document.body.appendChild( newElement );
+element.appendChild( newElement );
 ```
 
-While append will always append to the end of the child list, you can use the insertBefore.  
+And prepend will insert the element to the start of another element.
+
+```Javascript
+element.prepend(newElement);
+```
+
+Or you can insert before a specific element.
 This needs two arguments, and existing element and the element to be inserted before the first one.
 
 ```Javascript
 document.body.insertBefore(existingElement, elementToBeInsertedBefore)
 ```
 
-### Replacing Elements
+## Replacing Elements
 
 ```Javascript
 document.body.replaceChild('newChild','oldChild');
 ```
 
-```Javascript
+## Element Removal
 
+```Javascript
+element.remove();
+element.removeChild( childNode);
 ```
 
-```Javascript
+---
 
+## Editing Text:
+
+Instead of creating a new text node and appending it to an element, of can access the text of the element using its innerText property or the textContent:
+
+```Javascript
+element.innerText = 'new text';
+element.textContent;
 ```
 
-```Javascript
+Using the innerHTML propery, you can get or set the entire HTML inside an element, not only the text:
 
+```Javascript
+element.innerHTML;
+element.innerHTML = '<h1>First Heading</h1>';
+element.innerHTML += '<h2>Second Heading</h2>'
+```
+
+---
+
+## Changing CSS styling
+
+Each element has an style property that can be used to get or set CSS styles
+
+```Javascript
+element.style; //gets all the stylesheet for the element
+element.style.color;
+element.style.color = 'red';
+```
+
+> Actually, instead of setting styles line by line, is better to do the styling with a class or id selector inside the CSS file and then add or remove the class or id to/from the element.
+
+---
+
+## Events
+
+Come examples of events are mouse clicks, window scroll and a form submission.
+
+Mouse click:
+
+```Javascript
+element.addEventListener('click', callbackFunction);
 ```
 
 ```Javascript
