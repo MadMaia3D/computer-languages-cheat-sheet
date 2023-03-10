@@ -1,6 +1,20 @@
 # DOM - Document Object Model API
 
-## Window and Document objects:
+## Summary
+
+1. [Window and Document Objects](#window-and-document-objects)
+1. [Selecting Elements in the Document](#selecting-elements-in-the-document)
+1. [Navigating the DOM](#navigating-the-dom)
+1. [Getting and Setting the Text Content](#getting-and-setting-the-text-content)
+1. [Getting and Setting Attributes](#getting-and-setting-attributes)
+1. [Creating, Appending, Replacing and Removing Elements](#creating-appending-replacing-and-removing-elements)
+1. [Editing Text](#editing-text)
+1. [Changing CSS styling](#changing-css-styling)
+1. [Events](#events)
+
+---
+
+## Window and Document Objects
 
 The window object is a reference for the browser tab.  
 The document object is a child of window object. It is the HTML document itself.
@@ -35,7 +49,7 @@ console.dir(document)
 
 ---
 
-## Selecting Elements in the Document:
+## Selecting Elements in the Document
 
 Selecting id will always return one object, since ids are not reusable.
 
@@ -60,7 +74,7 @@ document.querySelectorAll( 'any css selector' );
 
 ---
 
-## Navigating the DOM:
+## Navigating the DOM
 
 ## Get the Child Nodes
 
@@ -213,7 +227,7 @@ element.removeChild( childNode);
 
 ---
 
-## Editing Text:
+## Editing Text
 
 Instead of creating a new text node and appending it to an element, of can access the text of the element using its innerText property or the textContent:
 
@@ -248,17 +262,72 @@ element.style.color = 'red';
 
 ## Events
 
-Come examples of events are mouse clicks, window scroll and a form submission.
+Some examples of events are mouse clicks, window scroll and forms submission.
 
-Mouse click:
+## Mouse Events
 
-```Javascript
-element.addEventListener('click', callbackFunction);
-```
+Mouse click events:
 
 ```Javascript
-
+element.addEventListener('mousedown', callbackFunction);
+element.addEventListener('mouseup', callbackFunction);
+element.addEventListener('click', callbackFunction); // called  after mouse down and mouse up events
 ```
+
+Mouse hover events:
+
+```Javascript
+element.addEventListener('mouseenter', callbackFunction); // called the cursor hovers over the element
+element.addEventListener('mouseleave', callbackFunction); // called the cursor stopes hovering over the element
+```
+
+## Key Events
+
+Key press events:
+
+```Javascript
+element.addEventListener('keydown', callbackFunction)
+element.addEventListener('keyup', callbackFunction)
+element.addEventListener('keypress', callbackFunction)
+```
+
+At each key pressed, the key value will be added to the value property of the element:
+
+```Javascript
+element.value;
+```
+
+## Key Object
+
+You can pass the event itself to the callback function.  
+This way you can attach the same function to many events but still reference different targets:
+
+```Javascript
+element.addEventListener('click', function(event){
+    console.log(eventObjectName);
+    event.currentTarget; //returns the HTML element that the event is targeting
+    event.currentTarget.classList.Add('new-class');
+    event.currentTarget === this; // in some situations currentTarget returns the same value as the this keyword
+});
+```
+
+You can prevent the default behavior of an element.  
+One use of this is to prevent the instant scroll of an anchor tag to then implement a smooth scroll.  
+Other example is that you might want to prevent the page refresh when the user submits a form.
+
+```Javascript
+event.preventDefault();
+```
+
+You can access compount elements separately using the event target.
+This way, you can target the children of the element to which the event handler was attached to.
+
+```Javascript
+event.currentTarget; // always refers to the element to which the event handler was attached to
+event.target; // indentifies the element on which the event occured
+```
+
+## Event Propagation, Bubbling and Capturing
 
 ```Javascript
 
