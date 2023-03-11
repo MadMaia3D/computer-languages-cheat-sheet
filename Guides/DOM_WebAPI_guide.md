@@ -47,11 +47,29 @@ console.log(document)
 console.dir(document)
 ```
 
+## Window Width and Height
+
+The innerWidth and innerHeight returns the dimensions of the page. The are read-only.
+
+```Javascript
+window.innerWidth;
+window.innerHeight;
+```
+
+## GetBoundingClientRect
+
+You can get the rectangle information about elements in your HTML. The GetBoundingClientRect method return an object that has information like position, dimension and the four border coordinates.
+
+```Javascript
+document.body.GetBoundingClientRect();
+element.GetBoundingClientRect();
+```
+
 ---
 
 # Selecting Elements in the Document
 
-Selecting id will always return one object, since ids are not reusable.
+Selecting by Id will always return one object, since ids are not reusable.
 
 ```Javascript
 document.getElementById( 'id' );
@@ -418,6 +436,41 @@ form.addEventListener('submit', function(event){
 
 Remember that this way, the action will not be executed and the information won't be sent by it. You will have to handle the form information in your Javascript code.
 
+## DOMContentLoaded Event
+
+The DOMContentLoaded event fires when the initial HTML document ha be completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
+It's useful if you put the your Javascript source to be loaded in the head of the HTML.
+
+```Javascript
+window.addEventListener('DOMContentLoaded', function(){})
+```
+
+## Load Event
+
+The load event is fired when the whole page, including the resources, has been loaded.
+
+```Javascript
+window.addEventListener('load', function(){})
+```
+
+The scroll event is fired when the user scrolls the page by the use of the scrollbar or the scroll whell.
+It is triggered if the page has sufficient size to have scrollbars.
+
+```Javascript
+window.addEventListener('scroll', function(){
+    console.log(window.scrollY + 'px'); //return the number of pixels scrolled along the vertical axis
+    console.log(window.scrollX + 'px');//return the number of pixels scrolled along the horizontal axis
+})
+```
+
+## Resize Event
+
+The resize event fires when the document has been resized, like when you resize the window or the browser developer tools.
+
+```Javascript
+window.addEventListener('resize', function(){})
+```
+
 ---
 
 # Local Storage
@@ -476,10 +529,6 @@ Use clearTimeout to cancel a timed function using the id number:
 ```Javascript
 window.clearTimeout(uniqueIdentifier);
 clearTimeout(uniqueIdentifier);
-```
-
-```Javascript
-
 ```
 
 ```Javascript
