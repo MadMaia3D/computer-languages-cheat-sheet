@@ -1,5 +1,16 @@
 # Git
 
+1. [User Setup](#user-setup)
+1. [Repository Initialization and Information](#repository-initialization-and-information)
+1. [Staging Changes](#staging-changes)
+1. [Commiting Changes](#commiting-changes)
+1. [Logging The Commit History](#logging-the-commit-history)
+1. [Working with Branches](#working-with-branches)
+1. [Comparing Changes With The Diff Command](#comparing-changes-with-the-diff-command)
+1. [Stashing](#stashing-needs-more-information)
+1. [Undoing Changes And Time Traveling](#undoing-changes-and-time-traveling)
+1. [GitHub And Remote Repositories](#github-and-remote-repositories)
+
 # User Setup
 
 To set the user information:
@@ -18,7 +29,7 @@ git config user.email
 
 ---
 
-# Repository Initialization and information
+# Repository Initialization and Information
 
 To create a repository in the current directory:
 
@@ -96,7 +107,7 @@ git commit --amend --no-edit`
 
 ---
 
-# To Log Commits
+# Logging The Commit History
 
 Show a history of the commits of the branch:
 
@@ -259,7 +270,7 @@ git diff commit1 commit2
 
 ---
 
-# Stashing (Needs more information)
+# Stashing (Needs More Information)
 
 Stashing allows you to save changes to recover later.
 
@@ -313,7 +324,7 @@ git stash clear
 
 ---
 
-# Undoing Changes & Time Traveling
+# Undoing Changes And Time Traveling
 
 ## Travel between commits:
 
@@ -392,7 +403,7 @@ git revert <commit-hash>
 
 ---
 
-# GitHub/ Remote Repositories
+# GitHub And Remote Repositories
 
 The commands in this section have the purporse of interractiong with remote repositories:
 
