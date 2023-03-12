@@ -59,16 +59,20 @@ Commit the staged changes (will open configured text editor to edit the commit m
 git commit
 ```
 
-Use the -m parameter to commit the staged changes with a message:
+Use the '--message=' parameter, or the shorter version '-m', to commit the staged changes with a message.
+The message should be inside single or double quotes:
 
 ```
+git commit --message='message'
+git commit --message="message"
 git commit -m 'message'
 git commit -m "message"
 ```
 
-Use the -a parameter to automatically add changed files and commit. This include ONLY the tracked files that have changed, not untracked files. These you will have to add manually.
+Use the '--all' parameter, or the shorter version '-a', to automatically add changed files and commit. This include ONLY the tracked files that have changed, not untracked files. These you will have to add manually.
 
 ```
+git commit --all
 git commit -a
 ```
 
