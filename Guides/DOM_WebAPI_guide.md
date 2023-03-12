@@ -11,6 +11,8 @@
 1. [Editing Text](#editing-text)
 1. [Changing CSS styling](#changing-css-styling)
 1. [Events](#events)
+1. [Local Storage](#local-storage)
+1. [Timed functions](#timed-functions)
 
 ---
 
@@ -21,9 +23,13 @@ The document object is a child of window object. It is the HTML document itself.
 
 ```Javascript
 window;
-window.console.log();
-window.alert();
-window.prompt();
+window.alert(message);
+window.prompt(message);
+window.console.log(message);
+window.console.warn(message);
+window.console.error(message);
+window.console.dir(element)
+window.console.clear();
 window.document;
 window.document.head;
 window.document.body;
@@ -32,8 +38,13 @@ window.document.body;
 If Javascript can't find a property, it will search it in the window object. This is why we can use methods like alert and log without writing window.alert or window.console.log.
 
 ```Javascript
-console.log();
-alert();
+alert(message);
+prompt(message);
+console.log(message);
+console.warn(message);
+console.error(message);
+console.dir(element)
+console.clear();
 document;
 document.head;
 document.body;
@@ -43,8 +54,8 @@ To print the value of something in the console, use the log method of the consol
 If you want to print the properties of an object, you can use the dir method of the console.
 
 ```Javascript
-console.log(document)
-console.dir(document)
+console.log(element)
+console.dir(element)
 ```
 
 ## Window Width and Height
@@ -180,14 +191,15 @@ element.className = 'first-class second-class';
 ```
 
 Or can set/get the list of classes of an element.  
-The adevantage is that you can use .add(), .remove() and contains() methods.  
+The advantage is that you can use add, remove, toggle and contains methods.  
 If you use the assignment operator, it will overwrite the existing classes.
 
 ```Javascript
 element.classList;
 element.classList.add('new-class');
 element.classList.remove('old-class');
-element.classList.contains('old-class');
+element.classList.toggle('class');
+element.classList.contains('class');
 ```
 
 ---
@@ -529,48 +541,4 @@ Use clearTimeout to cancel a timed function using the id number:
 ```Javascript
 window.clearTimeout(uniqueIdentifier);
 clearTimeout(uniqueIdentifier);
-```
-
-```Javascript
-
-```
-
-```Javascript
-
-```
-
-```Javascript
-
-```
-
-```Javascript
-
-```
-
-```Javascript
-
-```
-
-```Javascript
-
-```
-
-```Javascript
-
-```
-
-```Javascript
-
-```
-
-```Javascript
-
-```
-
-```Javascript
-
-```
-
-```Javascript
-
 ```
