@@ -72,8 +72,14 @@ window.innerHeight;
 You can get the rectangle information about elements in your HTML. The GetBoundingClientRect method return an object that has information like position, dimension and the four border coordinates.
 
 ```Javascript
-document.body.GetBoundingClientRect();
-element.GetBoundingClientRect();
+document.body.getBoundingClientRect();
+element.getBoundingClientRect();
+
+document.body.clientWidth;
+document.body.clientHeight;
+
+element.clientWidth;
+element.clientHeight;
 ```
 
 ---
