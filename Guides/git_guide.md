@@ -1,6 +1,6 @@
 # Git
 
-## User Setup
+# User Setup
 
 To set the user information:
 
@@ -18,7 +18,7 @@ git config user.email
 
 ---
 
-## Repository Initialization and information
+# Repository Initialization and information
 
 To create a repository in the current directory:
 
@@ -34,7 +34,7 @@ git init
 
 ---
 
-## Staging Changes
+# Staging Changes
 
 To add one or more files to the stage area:
 
@@ -51,7 +51,7 @@ git add .
 
 ---
 
-## Commiting Changes
+# Commiting Changes
 
 Commit the staged changes (will open configured text editor to edit the commit message):
 
@@ -92,7 +92,7 @@ git commit --amend --no-edit`
 
 ---
 
-## To Log Commits
+# To Log Commits
 
 Show a history of the commits of the branch:
 
@@ -108,7 +108,7 @@ git log --oneline
 
 ---
 
-## Working with Branches
+# Working with Branches
 
 Branches are like alternate time lines for you project.  
 To view all branches:
@@ -207,7 +207,7 @@ git branch -v
 
 ---
 
-## Comparing Changes With The Diff Command
+# Comparing Changes With The Diff Command
 
 Use git diff to compare the staging area and working directory.
 Basically shows what changed since the last commit and it is NOT staged.
@@ -255,7 +255,7 @@ git diff commit1 commit2
 
 ---
 
-## Stashing (Needs more information)
+# Stashing (Needs more information)
 
 Stashing allows you to save changes to recover later.
 
@@ -309,7 +309,7 @@ git stash clear
 
 ---
 
-## Undoing Changes & Time Traveling
+# Undoing Changes & Time Traveling
 
 ## Travel between commits:
 
@@ -388,7 +388,7 @@ git revert <commit-hash>
 
 ---
 
-## GitHub/ Remote Repositories
+# GitHub/ Remote Repositories
 
 The commands in this section have the purporse of interractiong with remote repositories:
 
