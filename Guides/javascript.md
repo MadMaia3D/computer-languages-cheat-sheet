@@ -14,6 +14,7 @@
 1. [Reference vs. Value](#reference-vs-value)
 1. [Null vs. Undefined](#null-vs-undefined)
 1. [Objects](#objects)
+1. [Built in Objects](#built-in-objects)
 
 ---
 
