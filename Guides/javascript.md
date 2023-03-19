@@ -273,14 +273,20 @@ You can mix anything in Javascript arrays, and they can grow dinamicaly.
 Some of the basic array properties and methods are:
 
 ```Javascript
-array.length                // returns the number of elements in the array.
-array.concat(otherArray)    // returns an array that has the elements of both array.
-array.reverse()             // returns a reversed version of the array.
-array.unshift(newElement)   // insert an element at the beggining of the array.
-array.shift()               // removes and returns the element at the beggining of the array.
-array.push(newElement)      // insert an element at the end of the array.
-array.pop()                 // removes and returns the element at the end of the array.
-array.splice(startIndex, nItems) // removes and returns n elements of the array.
+array.length                        // returns the number of elements in the array.
+array.push(newElement)              // insert an element at the end of the array.
+array.pop()                         // removes and returns the element at the end of the array.
+array.unshift(newElement)           // insert an element at the beggining of the array.
+array.shift()                       // removes and returns the element at the beggining of the array.
+array.concat(otherArray)            // returns an array that has the elements of both array.
+array.reverse()                     // returns a reversed version of the array.
+
+// splice removes and inserts items at same time.
+array.splice(startIndex, nItemsToBeRemoved, newItem1, newItem2,..., newItemN);
+
+// slice returns a portion of the original string. The end index is optional.
+const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+const citrus = fruits.slice(1, 3);
 ```
 
 ## Advanced Array Methods
