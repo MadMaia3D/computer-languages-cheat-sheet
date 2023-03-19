@@ -379,13 +379,294 @@ const objectName = {
     property_3: function () {},
     etc...
 };
+
+const person = {
+    name: 'john',
+    age: 50,
+}
+
+// you can use external variables to initialize the object's properties
+const name = 'john',
+const age = 50,
+
+const person = {
+    name: name,
+    age: age,
+}
+
+// objects methods can be chained
+object.method1().method2().method3();
+
+// delete a object property
+delete object.property;   // returns true if successful
 ```
 
-Objects methods can be chained:
+With ES6 it's possible to omit the value of the property if a variable of similar name alreasy exists:
 
 ```Javascript
-object.method1().method2().method3();
+const name = 'john',
+const age = 50,
+
+const person = {
+    name,
+    age,
+}
 ```
+
+You can set string as properties and use indexing to access it. This can be useful if you want a property to break variable naming rules, for example, if you want your property to have spaces or hypens in its name:
+
+```Javascript
+const object = {
+    name: 'john',
+    age: 50,
+    'random-value': 'random',
+}
+
+object['john'];
+object['random-value'];
+
+// using indexing, you can access properties dinamically using variables:
+let variable = 'name';
+object[variable];
+variable = 'age';
+object[variable];
+```
+
+## The 'this' keyword
+
+The this keyword points to the object that is right before the dot notation:
+
+```Javascript
+const Ana = {
+    firstName: "Joana",
+    lastName: "d'Arc",
+    fullName: function(){
+        return `${this.firstName} ${this.lastName}`
+    },
+};
+```
+
+This means that the 'this' keyword will return what is on the left of the dot. If you run it on the global scope, it will return the window object.
+
+```Javascript
+const bob = {
+    const showThis: showThis,
+};
+
+const jeter = {
+    const showThis: showThis,
+};
+
+function showThis(){
+    console.log(this);
+};
+
+bob.showThis();    // prints bob
+peter.showThis();  // prints peter
+showThis();        // prints the window object
+```
+
+> Be careful! If you use the 'this' keyword in an object method callback function, it will refer to the object, but if you use it inside a function that is called inside a callback function, it will refer to the window, not the object.
+
+## Factory Functions
+
+Factory functions constructs the objects with the usual curly brackets notation and the returns it:
+
+```Javascript
+function createPerson (firstName, lastName){
+    const person = {
+        firstName: firstName,
+        lastName: lastName,
+        getFullName: function(){
+            return this.firstName + " " + this.lastName;
+        }
+    }
+    return person;
+}
+
+const ana = createPerson("Ana","Potter");
+```
+
+## Constructor Functions
+
+A constructor functions returns a new object like the factory, but instead of creating the object using the usual brackets notation, you use the 'this' keyword and the assign operators directly inside the function and then omitting the return statement. To create an instance of that object, you use the 'new' keyword before calling the constructor function.
+
+Although it is not necessary, it convention to write the constructor function name in PascalCase instead of camelCase.
+
+```Javascript
+function Person (firstName, lastName){
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.getFullName = function(){
+        return this.firstName + " " + this.lastName;
+        };
+}
+
+const ana= new Person("Ana","Potter");
+```
+
+All objects in JS have access to the 'constructor' property, that is a reference to the function that created that object.
+
+```Javascript
+ana.constructor; // returns the Person function
+```
+
+By default, the object is created by the default JS object constructor, the 'Object' function.
+Lists are created by the 'Array' function, and functions created by the 'Function' function.
+
+It's possible to use the constructor of an object indirectly by using the constructor property of the already created objects:
+
+```Javascript
+const ana= new Person("Ana","Potter");
+const bob = ana.constructor("Bob","Peterson");
+```
+
+## Prototype Property
+
+By declaring a function on the constructor body, every time we use that constructor, JS will create a copy of that function in the memory. This is pretty inefficient since we are creating copies of the exact same function, instead of reusing it. To do this, every constructor function/class has a property that is shared by every instance constructor function/class, and it is called 'prototype'.
+
+To share properties among all the instances, set the property inside the 'prototype' property.
+
+```Javascript
+function Account (name, initialBalance){
+    this.fistName = name;
+    this.balance = initialBalance;
+}
+
+Account.prototype.bankName = "Money Lovers";
+Account.prototype.deposit = function(amount){
+    this.balance += amount;
+}
+Account.prototype.withdraw = function(amount){
+    this.balance -= amount;
+}
+Account.prototype.printBalance = function(){
+    console.log(this.balance);
+}
+
+const account = new Account
+```
+
+## Property Lookup
+
+If JS will look first if the child does have a property, if not JS will ask the parent for it.
+So if both the instances and the prototype have the same property, by default the returned value will be the one of the instance.
+
+## ES6 Classes
+
+ES6 Classes are a syntatic sugar for Prototypal Inheritance, and makes the code a lot cleaner.
+
+```Javascript
+class Account {
+  constructor(name, initialBalance){
+    this.fistName = name;
+    this.balance = initialBalance;
+  }
+
+  // Properties will still have a copy for each instance
+  bankName = "Money Lovers";
+  /* If you want to share a property amoung many instance, you should use the old prototype way. Another way is using the static keyword to set a Class variable instead of a instance variable.*/
+
+  // Still functions will be shared across instances of the same class
+  deposit(amount){
+    this.balance += amount;
+  }
+  withdraw(amount){
+    this.balance -= amount;
+  }
+  printBalance(){
+    console.log(this.balance);
+  }
+}
+
+const account = new Account
+```
+
+## Call, Apply and Bind
+
+-   call - runs instantly. Arguments = list of items.
+-   apply - runs instantly. Arguments = list of array.
+-   bind - assign now, use it later. Arguments = list of items.
+
+## Call
+
+Use the call method of a function to decide what the 'this' key word should be pointing:
+
+```Javascript
+const peter = {
+   firstName: 'peter',
+   lastName: 'parker',
+   age: 21,
+   greet: function(){
+      console.log(`Hello, I'm ${firstName} ${lastName}, how are you?`);
+   }
+}
+
+function printFullName () {
+   console.log( this.firstName + this.lastName );
+}
+
+// This won't work since the 'this' doesn't point to anything.
+// JS will consider that it is pointing to the window.
+// Since the windom object doesn't have firstName and lastName properties,
+// It will return undefined.
+printFullName();
+
+// The following will not work too.
+// Because the 'this' keyword evaluates to what is before the dot
+// when the function is called, and in this case there is nothing,
+// so this will evaluate to the window.
+const peterGreet = peter.greet;
+peterGreet();
+
+// In these cases, use the call method of the function.
+// It will tell to JS what 'this' should evaluate to.
+printFullName.call(peter);
+peterGreet.call(peter)
+```
+
+With this method it is possible to make the keyword 'this' inside a method of an object point to another object:
+
+```Javascript
+peter.greet.call(susan);
+```
+
+To pass arguments to the function where you are using the call method, you can pass it as a list of items right after the object argument:
+
+```Javascript
+const object = {};
+function random( parameter_1, parameter_2 ){/*code*/}
+
+random.call( object, argument_1, argument_2);
+```
+
+## Apply
+
+Similar to call, you can use the apply method, but instead of receiving the arguments as a list of items, it receives it as an array:
+
+```Javascript
+const object = {};
+function random(parameter_1, parameter_2){/*code*/}
+
+random.apply(object, [argument_1, argument_2]);
+```
+
+## Bind
+
+At last we have the bind method. It is similar to call and apply, but you assign it to be used later.
+It accepts a list of items.
+
+```Javascript
+function random(parameter_1, parameter_2){/*code*/}
+
+const randomReference = random.bind( object, argument_1, argument_2);
+
+randomReference();
+```
+
+---
+
+# Built in Objects
 
 ## Math object
 
