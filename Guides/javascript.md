@@ -429,7 +429,7 @@ const object = {
     'random-value': 'random',
 }
 
-object['john'];
+object['name'];
 object['random-value'];
 
 // using indexing, you can access properties dinamically using variables:
@@ -556,7 +556,7 @@ const account = new Account
 
 ## Property Lookup
 
-If JS will look first if the child does have a property, if not JS will ask the parent for it.
+JS will look first if the child does have a property, if not JS will ask the parent for it.
 So if both the instances and the prototype have the same property, by default the returned value will be the one of the instance.
 
 ## ES6 Classes
