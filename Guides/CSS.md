@@ -747,14 +747,141 @@ element {
 }
 ```
 
-```css
+---
 
+# CSS Flexbox
+
+The CSS Flebox is an display value like 'in-line' or 'block'.
+You can set the container display as 'flex' or 'inline-flex'.
+
+```css
+display: flex;
 ```
 
-```css
+The parent container is refered as a "flex-container", and the children "flexitems".
 
+-   Flex-Container = Parent Container.
+-   Flex-Items = Childs of th Flex-Container.
+
+A parent and children can be any HTML elements, as long it makes senses.
+
+## Flex-Container Properties:
+
+Flex-direction is the property that determines if the primary axis, the "Main Axis", will be vertical or horizontal. The secondary axis is called "Cross Axis".
+
+```css
+flex-direction: row;
+flex-direction: row-reverse;
+flex-direction: column;
+flex-direction: column-reverse;
 ```
 
-```css
+By default, the children will overflow the container, but you can make them wrap into new lines if the flex-container space isn't enough:
 
+```css
+flex-wrap: nowrap;
+flex-wrap: wrap;
+flex-wrap: wrap-reverse;
+```
+
+The justify property is responsible for the "Main Axis" alignment of the children:
+
+```css
+justify-content: flex-start;
+justify-content: flex-end;
+justify-content: center;
+justify-content: space-between;
+justify-content: space-around;
+justify-content: space-evenly;
+```
+
+The align property is responsible for the "Cross Axis" alignment of the children. To make changes to this property visible, you need to assign a height value to the flex-container since by default it inherits the height of its children.
+
+```css
+align-items: stretch;
+align-items: flex-start;
+align-items: flex-end;
+align-items: center;
+align-items: baseline;
+```
+
+> ps: flex-start align the children to the top of the container, but baseline will align the children by the base of its contents.
+
+A property similar to align-items, is align-content. The difference is that align-items each child a separated items, while align content treat the entire content as one thing.
+
+```css
+align-content: stretch;
+align-content: flex-start;
+align-content: flex-end;
+align-content: center;
+align-content: space-between;
+align-content: space-around;
+align-content: space-evenly;
+```
+
+You can add a gap space between the items:
+
+```css
+gap: 10px;
+row-gap: 10px;
+column-gap: 10px;
+```
+
+## Flex-Children Properties:
+
+### Order:
+
+You can change the order of an item. The default value is 0. Lower numbers come first. Elements with the same name will be ordered in the same flow as the html.
+
+```css
+order: 3;
+```
+
+### Align-Self:
+
+Changes the alignment of just one item.
+
+```css
+align-self: stretch;
+align-self: flex-start;
+align-self: flex-end;
+align-self: center;
+align-self: baseline;
+```
+
+### Flex-Grow:
+
+Determines if the child should grow to fill out the space left in the main axis. The value determines the proportion of the empty space each child will take.  
+The default is `0`.
+
+```css
+flex-grow: 0;
+```
+
+### Flex-Shrink:
+
+Determine if the child shoul shrink to adapt to the container size.  
+The default is `1`.
+
+```css
+flex-shrink: 1;
+```
+
+### Flex-Basis
+
+Determines the minimum width for the child. To avoid problems, it's recommended that the child has a display of border box and no left-right padding.  
+The default is `auto`.
+
+```css
+flex-basis: auto;
+```
+
+### The Flex Shorthand:
+
+You can use the short hand flex to set in one line the grow, shrink and basis.  
+The default is `0 1 auto`.
+
+```css
+flex: grow shrink basis;
+flex: 1 1 auto;
 ```
