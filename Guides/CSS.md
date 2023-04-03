@@ -18,6 +18,8 @@
 1. [Transitions](#transitions)
 1. [Animations](#animations)
 1. [CSS Variables](#css-variables)
+1. [CSS Flexbox](#css-flexbox)
+1. [CSS Grid](#css-grid)
 
 ---
 
@@ -884,4 +886,163 @@ The default is `0 1 auto`.
 ```css
 flex: grow shrink basis;
 flex: 1 1 auto;
+```
+
+---
+
+# CSS Grid
+
+Grid is a display value used to setup two dimensional layouts.
+Like Flexbox, the grid layout has a parent container and child items, called grid-container and grid-cells.
+
+## Grid Container
+
+```css
+display: grid;
+grid-template-columns: 200px 300px 200px; /* the width the each column, in this case is a 3 column grid */
+```
+
+While you don't setup the rows, you will have implicit grid. This means that CSS Grid will create more rows when it needs more space.
+
+The auto keyword is a resposive wall determinimn the size of the column
+
+```css
+grid-template-columns: 25% 25% auto; /*the third columns will always occupy the remaining space of the container*/
+grid-template-columns: auto auto auto; /*three columns of the same size*/
+```
+
+To set the number the number of rows manually, or explicit rows, use the property `grid-template-rows`.
+If the number of items is bigger than the number of grid places, CSS Grid will create implicit rows.
+
+```css
+display: grid;
+grid-template-columns: auto auto auto;
+grid-template-rows: auto auto;
+```
+
+### Fr - Fraction Units
+
+Fraction Units are used to break the grid space into columns and rows. 1fr means a fraction of available space.
+It's easier than using percentages.
+
+```css
+grid-template-columns: auto auto auto;
+grid-template-columns: 1fr 1fr 1fr;
+
+grid-template-columns: 50% 50%;
+grid-template-columns: 1fr 1fr;
+
+grid-template-columns: 25% 50% 25%;
+grid-template-columns: 1fr 2fr 1fr;
+```
+
+> Fraction Units works well with `grid-gap` property, while others units don't
+
+### Gap
+
+Like flexbox, we can use the gap property in Grid too.
+
+```css
+grid-row-gap: 1rem;
+grid-column-gap: 2rem;
+gap: 1rem 2rem; /* the frist value is the row gap */
+gap: 1rem; /* applies for columns and rows */
+
+grid-gap: 1rem 2rem; /* obsolete*/
+grid-gap: 1rem; /* obsolete*/
+```
+
+## Grid Cells
+
+Around and between the grid cells theres is a grid line, starting from 1 and going up.
+A grid of 3 columns have would the 3 columns tracks where the cells would be sitting and around them 4 columns lines:
+
+-   CL 1 - TRACK - CL 2 - TRACK - CL 3 - TRACK - CL 4
+
+The same works for rows tracks and rows lines.
+
+They should be referenced to control how the cells would occupy the grid space.
+
+### Grid Column/Row Start/End
+
+If you want a make a cell occupy more than 1 column of the grid, set the grid-columns-start and grid-columns-end:
+
+```css
+/* this styling sets the cell to use the all the column tracks between the column lines 1 and 3 */
+grid-column-start: 1;
+grid-column-end: 3;
+
+grid-column: 1/3; /* short hand */
+```
+
+The same apply for rows:
+
+```css
+grid-row-start: 1;
+grid-row-end: 3;
+
+grid-row: 1/3; /* short hand */
+```
+
+It's possible to use negative numbers for start and end, -1 meaning the last line, -2 the line before it, and goes on.
+
+```css
+/* the following will make the cell ocupy the last column */
+grid-column-start: -2;
+grid-column-end: -1;
+
+grid-column: -2/-1; /* short hand */
+```
+
+### Naming lines:
+
+You can give names for lines and use them instead of numbers.
+To name lines, at the grid-template-columns or grid-template-rows declaration, insert between the columns sizes a pair of square brackets with the desired name inside them.
+
+```css
+/* this example names the first and the last columns and row of the grid */
+.grid-container {
+    grid-template-columns: [start] 100px 100px 100px [end];
+    grid-template-rows: [start] 100px 100px 100px [end];
+}
+/* then we set one of the cells to span all across the columns*/
+.grid-cell-1 {
+    grid-column: start/end;
+}
+
+/* another example */
+.grid-container {
+    grid-template-columns: [start] 100px 100px [middle] 100px 100px [end];
+    grid-template-rows: [start] 100px 100px [middle] 100px 100px [end];
+}
+.grid-cell-1 {
+    grid-column: start/middle;
+}
+.grid-cell-2 {
+    grid-column: middle/end;
+}
+```
+
+```css
+
+```
+
+```css
+
+```
+
+```css
+
+```
+
+```css
+
+```
+
+```css
+
+```
+
+```css
+
 ```
