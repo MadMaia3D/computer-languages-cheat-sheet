@@ -1082,6 +1082,20 @@ Children that have the same order will follow the order of the document flow.
 }
 ```
 
+## Repeat Function
+
+Instead of repeating values manually for grid-template, you can use the repeat function:
+
+```css
+.container {
+    display: grid;
+    /* same as 1fr 1fr 1fr: */
+    grid-template-columns: repeat(3, 1fr);
+    /* same as 100px 100px 100px 100px 100px: */
+    grid-template-rows: repeat(5, 100px);
+}
+```
+
 ```css
 
 ```
