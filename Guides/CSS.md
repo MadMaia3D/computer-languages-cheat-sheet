@@ -920,7 +920,7 @@ grid-template-columns: auto auto auto;
 grid-template-rows: auto auto;
 ```
 
-### Fr - Fraction Units
+## Fr - Fraction Units
 
 Fraction Units are used to break the grid space into columns and rows. 1fr means a fraction of available space.
 It's easier than using percentages.
@@ -938,7 +938,7 @@ grid-template-columns: 1fr 2fr 1fr;
 
 > Fraction Units works well with `grid-gap` property, while others units don't
 
-### Gap
+## Gap
 
 Like flexbox, we can use the gap property in Grid too.
 
@@ -963,7 +963,7 @@ The same works for rows tracks and rows lines.
 
 They should be referenced to control how the cells would occupy the grid space.
 
-### Grid Column/Row Start/End
+## Grid Column/Row Start/End
 
 If you want a make a cell occupy more than 1 column of the grid, set the grid-columns-start and grid-columns-end:
 
@@ -994,7 +994,7 @@ grid-column-end: -1;
 grid-column: -2/-1; /* short hand */
 ```
 
-### Naming lines:
+## Naming lines:
 
 You can give names for lines and use them instead of numbers.
 To name lines, at the grid-template-columns or grid-template-rows declaration, insert between the columns sizes a pair of square brackets with the desired name inside them.
