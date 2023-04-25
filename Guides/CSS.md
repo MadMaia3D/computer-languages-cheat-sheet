@@ -1066,6 +1066,22 @@ The name doesn't need to be just a letter.
 }
 ```
 
+## Order
+
+Like flexbox, you can change the order of the children. By default, the order of each child is 0 (zero).  
+Higher values moves the child to the end of the container while lower values more it to the start.  
+Children that have the same order will follow the order of the document flow.
+
+```css
+/* cell-1 will be positioned after cell-2 */
+.cell-1 {
+    order: 2;
+}
+.cell-2 {
+    order: 1;
+}
+```
+
 ```css
 
 ```
