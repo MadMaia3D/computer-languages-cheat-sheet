@@ -1023,6 +1023,49 @@ To name lines, at the grid-template-columns or grid-template-rows declaration, i
 }
 ```
 
+## Grid Template Areas
+
+Instead of setting columns/rows start/end in each cell, you can set named areas
+in the container and then set the cells to use those areas.  
+In the example below, the area named 'a' uses the first two rows and the
+first two columns. The area named 'b' uses the last column and the first two rows.
+Basically you are usign strings to make a drawing of your areas.
+The name doesn't need to be just a letter.
+
+```css
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    /* Each string represent a row. Each string has a value for each columns*/
+    /* The string mimics the shape of the areas */
+    grid-template-areas:
+        "a a b"
+        "a a b"
+        "c c b"
+        "d d d"
+        "e f f";
+}
+.cell-1 {
+    grid-area: a;
+}
+.cell-2 {
+    grid-area: b;
+}
+.cell-3 {
+    grid-area: c;
+}
+.cell-4 {
+    grid-area: d;
+}
+.cell-5 {
+    grid-area: e;
+}
+.cell-6 {
+    grid-area: f;
+}
+```
+
 ```css
 
 ```
