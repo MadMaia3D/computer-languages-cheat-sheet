@@ -1096,6 +1096,26 @@ Instead of repeating values manually for grid-template, you can use the repeat f
 }
 ```
 
+## Justify-Content
+
+Like with flexbox, you can justify the content.
+
+```css
+.container {
+    display: grid;
+    height: 50vh;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: flex-start;
+    justify-content: flex-end;
+    justify-content: center;
+    justify-content: space-evenly;
+    justify-content: space-between;
+    justify-content: space-around;
+}
+```
+
+> Justify content won't work with fraction units since fraction will always that all the remaining space, leaving no space for justifying the content.
+
 ```css
 
 ```
