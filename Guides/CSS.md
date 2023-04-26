@@ -1167,17 +1167,48 @@ This is similar to the CSS clamp function:
     grid-template-rows: repeat(2, 1fr);
 }
 ```
-```css
 
+## Auto-fit and Auto-Fill
+
+CSS Grid can create new rows implicitly, but can't create new columns by default. When using the repeat function, when can pass as the first argument the value of 'auto-fit' or 'auto-fill'. This way the grid can automatically add new columns, with two different behaviours:
+
+Auto-fit only fits the existing children:
+
+```css
+.container {
+    display: grid;
+    /* grid will try to create 200px columns until all the children are accommodated: */
+    grid-template-columns: (auto-fit, 200px);
+}
 ```
 
-```css
-
-```
+Auto-fill keeps creating columns even if it creates empty columns:
 
 ```css
-
+.container {
+    display: grid;
+    /* grid will create as many 200px columns as possible:  */
+    grid-template-columns: (auto-fill, 200px);
+}
 ```
+
+In the examples bellow we use minmax to make sure that the minimum size for the
+columns is 200px.  
+The difference is that for the first container, the maximum columns quantity will be the same as the children count, but for the second container, the grid will continue creating columns as the width of the container gets bigger.  
+So for example, if each of these has 6 children, when the width of the container gets to 1400px, the first container will have 6 columns, one for each child, while the second will have 7 columns, 6 filled and 1 empty.
+
+```css
+.container-1 {
+    display: grid;
+    grid-template-columns: (auto-fit, minmax(200px, 1fr));
+}
+.container-2 {
+    display: grid;
+    grid-template-columns: (auto-fill, minmax(200px, 1fr));
+}
+```
+
+Auto-Fit and Auto-Fill are good for responsive grid without using media queries for them.
 
 ```css
 
