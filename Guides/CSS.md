@@ -1116,6 +1116,21 @@ Like with flexbox, you can justify the content.
 
 > Justify content won't work with fraction units since fraction will always that all the remaining space, leaving no space for justifying the content.
 
+# Align-Content
+
+    Like with flexbox, you can align vertically the content.
+
+```css
+.container {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 100px 100px 200px;
+    align-content: stretch; /* When the grid is implicit, the content height will stretch to fill the container vertically. This is the default behavior. */
+    align-content: flex-start;
+    align-content: flex-end;
+    align-content: center;
+}
+```
 ```css
 
 ```
