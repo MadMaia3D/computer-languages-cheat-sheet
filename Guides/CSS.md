@@ -1117,7 +1117,7 @@ Like with flexbox, you can justify the content.
 
 > Justify content won't work with fraction units since fraction will always that all the remaining space, leaving no space for justifying the content.
 
-# Align-Content
+## Align-Content
 
     Like with flexbox, you can align vertically the content.
 
