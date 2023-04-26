@@ -1135,6 +1135,13 @@ Like with flexbox, you can justify the content.
     align-content: space-around;
 }
 ```
+
+## Justify-Items and Align-Items
+
+Justify-Items is similar to Justify-Content, but considers each column separately.  
+Align-Items is similar to Align-Content, but considers each row separately.  
+The values are the same for Justify-Content and Align-Content.
+
 ```css
 
 ```
