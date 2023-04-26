@@ -1142,6 +1142,17 @@ Justify-Items is similar to Justify-Content, but considers each column separatel
 Align-Items is similar to Align-Content, but considers each row separately.  
 The values are the same for Justify-Content and Align-Content.
 
+## Justify-Self and Align-Self
+
+You can justify or align items individually.
+The values are the same for Justify-Content and Align-Content.
+
+```css
+.cell {
+    justify-self: center;
+    align-self: center;
+}
+```
 ```css
 
 ```
