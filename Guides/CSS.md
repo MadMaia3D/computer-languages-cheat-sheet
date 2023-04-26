@@ -1153,6 +1153,20 @@ The values are the same for Justify-Content and Align-Content.
     align-self: center;
 }
 ```
+
+## Minmax Function
+
+You can set minimum and maximum values for the columns and rows dimensions.
+This is similar to the CSS clamp function:
+
+```css
+.container {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr minmax(300px, 1fr) 1fr; /* the second columns will have at least 300px and 1fr at maximum*/
+    grid-template-rows: repeat(2, 1fr);
+}
+```
 ```css
 
 ```
