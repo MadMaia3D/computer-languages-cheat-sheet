@@ -994,13 +994,14 @@ grid-column-end: -1;
 grid-column: -2/-1; /* short hand */
 ```
 
-## Naming lines:
+## Naming Lines:
 
 You can give names for lines and use them instead of numbers.
 To name lines, at the grid-template-columns or grid-template-rows declaration, insert between the columns sizes a pair of square brackets with the desired name inside them.
 
 ```css
 /* this example names the first and the last columns and row of the grid */
+/* columns names won't collide with rows names, so you can repeat them*/
 .grid-container {
     grid-template-columns: [start] 100px 100px 100px [end];
     grid-template-rows: [start] 100px 100px 100px [end];
