@@ -1130,6 +1130,9 @@ Like with flexbox, you can justify the content.
     align-content: flex-start;
     align-content: flex-end;
     align-content: center;
+    align-content: space-evenly;
+    align-content: space-between;
+    align-content: space-around;
 }
 ```
 ```css
