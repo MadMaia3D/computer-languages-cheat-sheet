@@ -1178,7 +1178,7 @@ Auto-fit only fits the existing children:
 .container {
     display: grid;
     /* grid will try to create 200px columns until all the children are accommodated: */
-    grid-template-columns: (auto-fit, 200px);
+    grid-template-columns: repeat(auto-fit, 200px);
 }
 ```
 
@@ -1188,7 +1188,7 @@ Auto-fill keeps creating columns even if it creates empty columns:
 .container {
     display: grid;
     /* grid will create as many 200px columns as possible:  */
-    grid-template-columns: (auto-fill, 200px);
+    grid-template-columns: repeat(auto-fill, 200px);
 }
 ```
 
@@ -1200,11 +1200,11 @@ So for example, if each of these has 6 children, when the width of the container
 ```css
 .container-1 {
     display: grid;
-    grid-template-columns: (auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 .container-2 {
     display: grid;
-    grid-template-columns: (auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 ```
 
