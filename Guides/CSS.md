@@ -1210,14 +1210,23 @@ So for example, if each of these has 6 children, when the width of the container
 
 Auto-Fit and Auto-Fill are good for responsive grid without using media queries for them.
 
-```css
+## Place-items
 
+Place-items is a property that allows you to align-items and justify-items in just one line.
+It's basically a shorthand for align-items + justify-items.
+
+```css
+place-items: center end;
 ```
 
 ```css
-
+place-items: center stretch;
 ```
 
-```css
+This can be useful for centering all items:
 
+```css
+place-items: center center;
+/* or */
+place-items: center;
 ```
